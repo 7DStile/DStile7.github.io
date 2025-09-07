@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Product Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Привет, я Дмитрий</h1>
+      <p>Middle Product Manager</p>
+      <a href="#projects" class="btn">Мои проекты</a>
+      <button id="theme-toggle">🌙</button>
+    </div>
+  </header>
+
+  <section id="about" class="about">
+    <h2>Обо мне</h2>
+    <p>
+      Я — product manager, который соединяет данные, дизайн и бизнес.  
+      Работаю над продуктами, которые помогают людям решать реальные задачи.  
+      Считаю важным прозрачность процессов, гипотезы и метрики.
+    </p>
+  </section>
+
+  <section id="skills" class="skills">
+    <h2>Навыки</h2>
+    <div class="skills-grid">
+      <div class="skill-card">Product Discovery</div>
+      <div class="skill-card">Agile / Scrum</div>
+      <div class="skill-card">UX Research</div>
+      <div class="skill-card">A/B Testing</div>
+      <div class="skill-card">Analytics (SQL, GA)</div>
+      <div class="skill-card">Stakeholder Management</div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>Проекты</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Платформа X</h3>
+        <p>Увеличил retention на 15% за счет новой onboarding-системы.</p>
+      </div>
+      <div class="project-card">
+        <h3>Мобильное приложение Y</h3>
+        <p>Оптимизировал воронку регистрации, рост активации +20%.</p>
+      </div>
+      <div class="project-card">
+        <h3>CRM-система Z</h3>
+        <p>Внедрил дешборды для продаж, снизил ручные отчёты на 40%.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Контакты</h2>
+    <p>📧 <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    <p>💼 <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Дмитрий | Product Manager Portfolio</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById("theme-toggle");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      toggleBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+  </script>
+</body>
+</html>
