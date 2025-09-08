@@ -7,71 +7,111 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1>Привет, я Дмитрий</h1>
-      <p>Middle Product Manager</p>
-      <a href="#projects" class="btn">Мои проекты</a>
-      <button id="theme-toggle">🌙</button>
-    </div>
+  <header class="navbar">
+    <div class="logo">DMITRY</div>
+    <nav>
+      <ul>
+        <li><a href="#about">Обо мне</a></li>
+        <li><a href="#skills">Навыки</a></li>
+        <li><a href="#projects">Проекты</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle">🌙</button>
   </header>
 
-  <section id="about" class="about">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+      <h1 class="fade-in">Привет, я Дмитрий</h1>
+      <p class="fade-in delay">Middle Product Manager</p>
+      <a href="#projects" class="btn fade-in delay-2">Мои проекты</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about fade-in">
     <h2>Обо мне</h2>
     <p>
-      Я — product manager, который соединяет данные, дизайн и бизнес.  
-      Работаю над продуктами, которые помогают людям решать реальные задачи.  
-      Считаю важным прозрачность процессов, гипотезы и метрики.
+      Product manager с опытом в digital и SaaS-продуктах.  
+      Умею соединять бизнес-цели, аналитику и пользовательский опыт.  
+      Люблю работать с гипотезами и метриками.
     </p>
   </section>
 
-  <section id="skills" class="skills">
+  <!-- Skills -->
+  <section id="skills" class="skills fade-in">
     <h2>Навыки</h2>
     <div class="skills-grid">
-      <div class="skill-card">Product Discovery</div>
+      <div class="skill-card">Discovery</div>
       <div class="skill-card">Agile / Scrum</div>
       <div class="skill-card">UX Research</div>
       <div class="skill-card">A/B Testing</div>
-      <div class="skill-card">Analytics (SQL, GA)</div>
-      <div class="skill-card">Stakeholder Management</div>
+      <div class="skill-card">Analytics</div>
+      <div class="skill-card">Stakeholder Mgmt</div>
     </div>
   </section>
 
-  <section id="projects" class="projects">
+  <!-- Projects -->
+  <section id="projects" class="projects fade-in">
     <h2>Проекты</h2>
     <div class="project-grid">
-      <div class="project-card">
-        <h3>Платформа X</h3>
-        <p>Увеличил retention на 15% за счет новой onboarding-системы.</p>
+      <div class="project-card slide-up">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="project">
+        <div class="project-info">
+          <h3>Платформа X</h3>
+          <p>Рост retention +15% благодаря новому onboarding.</p>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>Мобильное приложение Y</h3>
-        <p>Оптимизировал воронку регистрации, рост активации +20%.</p>
+      <div class="project-card slide-up delay">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="project">
+        <div class="project-info">
+          <h3>App Y</h3>
+          <p>Оптимизация воронки, активация +20%.</p>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>CRM-система Z</h3>
-        <p>Внедрил дешборды для продаж, снизил ручные отчёты на 40%.</p>
+      <div class="project-card slide-up delay-2">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" alt="project">
+        <div class="project-info">
+          <h3>CRM Z</h3>
+          <p>Дашборды сократили ручные отчёты на 40%.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="contact">
+  <!-- Contact -->
+  <section id="contact" class="contact fade-in">
     <h2>Контакты</h2>
     <p>📧 <a href="mailto:youremail@example.com">youremail@example.com</a></p>
     <p>💼 <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></p>
   </section>
 
   <footer>
-    <p>© 2025 Дмитрий | Product Manager Portfolio</p>
+    <p>© 2025 Дмитрий | Portfolio</p>
   </footer>
 
   <script>
+    // Тема
     const toggleBtn = document.getElementById("theme-toggle");
     toggleBtn.addEventListener("click", () => {
       document.body.classList.toggle("dark");
       toggleBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
     });
+
+    // Появления при скролле
+    const faders = document.querySelectorAll('.fade-in, .slide-up');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("appear");
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
   </script>
 </body>
 </html>
